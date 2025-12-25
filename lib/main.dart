@@ -15,13 +15,16 @@ class DevHttpOverrides extends HttpOverrides {
 }
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   if (kDebugMode) {
     HttpOverrides.global = DevHttpOverrides();
   }
-  setupLocator();
-  runnerApp();
+
+  await setupLocator();
+  runApp(const App());
 }
 
-void runnerApp() {
+Future<void> runnerApp() async {
   runApp(const App());
 }
