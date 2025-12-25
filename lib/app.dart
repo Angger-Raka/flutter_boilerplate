@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_boilerplate/features/settings/settings.dart';
 import 'package:flutter_boilerplate/locator.dart';
 import 'package:flutter_boilerplate/router.dart';
@@ -30,25 +31,17 @@ class _AppView extends StatelessWidget {
         return MaterialApp.router(
           title: 'Flutter Boilerplate',
           debugShowCheckedModeBanner: false,
-
-          // Theme
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(
-              seedColor: Colors.blue,
-              brightness: Brightness.light,
-            ),
+                seedColor: Colors.blue, brightness: Brightness.light),
             useMaterial3: true,
           ),
           darkTheme: ThemeData(
             colorScheme: ColorScheme.fromSeed(
-              seedColor: Colors.blue,
-              brightness: Brightness.dark,
-            ),
+                seedColor: Colors.blue, brightness: Brightness.dark),
             useMaterial3: true,
           ),
           themeMode: state.settings.themeMode,
-
-          // Localization
           locale: state.settings.language.locale,
           supportedLocales: AppLocalizations.supportedLocales,
           localizationsDelegates: const [
@@ -57,8 +50,6 @@ class _AppView extends StatelessWidget {
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
-
-          // Router
           routerConfig: router,
         );
       },

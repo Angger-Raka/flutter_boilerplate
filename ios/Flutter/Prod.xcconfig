@@ -1,0 +1,4 @@
+// Production flavor configuration
+FLUTTER_FLAVOR=prod
+PRODUCT_BUNDLE_IDENTIFIER=com.example.flutterBoilerplate
+DISPLAY_NAME=Flutter Boilerplate

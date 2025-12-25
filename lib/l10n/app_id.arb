@@ -1,0 +1,20 @@
+{
+    "@@locale": "id",
+    "appTitle": "Flutter Boilerplate",
+    "settings": "Pengaturan",
+    "environment": "Lingkungan",
+    "environmentDescription": "Pilih lingkungan API",
+    "language": "Bahasa",
+    "languageDescription": "Pilih bahasa yang Anda inginkan",
+    "theme": "Tema",
+    "themeDescription": "Pilih tema yang Anda inginkan",
+    "development": "Pengembangan",
+    "staging": "Staging",
+    "production": "Produksi",
+    "english": "English",
+    "indonesian": "Bahasa Indonesia",
+    "systemDefault": "Sistem",
+    "lightMode": "Terang",
+    "darkMode": "Gelap",
+    "restartRequired": "Aplikasi mungkin perlu di-restart agar beberapa perubahan diterapkan"
+}

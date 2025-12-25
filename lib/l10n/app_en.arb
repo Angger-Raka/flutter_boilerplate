@@ -1,0 +1,71 @@
+{
+    "@@locale": "en",
+    "appTitle": "Flutter Boilerplate",
+    "@appTitle": {
+        "description": "The title of the application"
+    },
+    "settings": "Settings",
+    "@settings": {
+        "description": "Settings page title"
+    },
+    "environment": "Environment",
+    "@environment": {
+        "description": "Environment section title"
+    },
+    "environmentDescription": "Select the API environment",
+    "@environmentDescription": {
+        "description": "Description for environment selection"
+    },
+    "language": "Language",
+    "@language": {
+        "description": "Language section title"
+    },
+    "languageDescription": "Select your preferred language",
+    "@languageDescription": {
+        "description": "Description for language selection"
+    },
+    "theme": "Theme",
+    "@theme": {
+        "description": "Theme section title"
+    },
+    "themeDescription": "Select your preferred theme",
+    "@themeDescription": {
+        "description": "Description for theme selection"
+    },
+    "development": "Development",
+    "@development": {
+        "description": "Development environment"
+    },
+    "staging": "Staging",
+    "@staging": {
+        "description": "Staging environment"
+    },
+    "production": "Production",
+    "@production": {
+        "description": "Production environment"
+    },
+    "english": "English",
+    "@english": {
+        "description": "English language option"
+    },
+    "indonesian": "Bahasa Indonesia",
+    "@indonesian": {
+        "description": "Indonesian language option"
+    },
+    "systemDefault": "System",
+    "@systemDefault": {
+        "description": "System default theme"
+    },
+    "lightMode": "Light",
+    "@lightMode": {
+        "description": "Light mode theme"
+    },
+    "darkMode": "Dark",
+    "@darkMode": {
+        "description": "Dark mode theme"
+    },
+    "restartRequired": "App restart may be required for some changes to take effect",
+    "@restartRequired": {
+        "description": "Warning message about restart"
+    }
+}

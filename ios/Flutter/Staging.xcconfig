@@ -1,0 +1,4 @@
+// Staging flavor configuration
+FLUTTER_FLAVOR=staging
+PRODUCT_BUNDLE_IDENTIFIER=com.example.flutterBoilerplate.staging
+DISPLAY_NAME=Flutter BP Staging

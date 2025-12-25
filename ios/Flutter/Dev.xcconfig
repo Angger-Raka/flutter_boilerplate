@@ -1,0 +1,4 @@
+// Dev flavor configuration
+FLUTTER_FLAVOR=dev
+PRODUCT_BUNDLE_IDENTIFIER=com.example.flutterBoilerplate.dev
+DISPLAY_NAME=Flutter BP Dev
