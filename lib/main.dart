@@ -3,6 +3,9 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/app.dart';
+import 'package:flutter_boilerplate/core/services/firebase/firebase_service.dart';
+import 'package:flutter_boilerplate/core/services/firebase/messaging_service.dart';
+import 'package:flutter_boilerplate/core/services/firebase/remote_config_service.dart';
 import 'package:flutter_boilerplate/locator.dart';
 
 class DevHttpOverrides extends HttpOverrides {
@@ -21,10 +24,26 @@ Future<void> main() async {
     HttpOverrides.global = DevHttpOverrides();
   }
 
-  await setupLocator();
-  runApp(const App());
-}
+  // Initialize Firebase
+  await FirebaseService.initialize();
 
-Future<void> runnerApp() async {
+  // Initialize Push Notifications
+  await MessagingService.initialize(
+    onMessageOpenedApp: (message) {
+      debugPrint('🔔 Notification tapped: ${message.data}');
+      // Handle deep linking here
+    },
+  );
+
+  // Initialize Remote Config with defaults
+  await RemoteConfigService.initialize(
+    defaults: {
+      'feature_new_ui': false,
+      'maintenance_mode': false,
+      'min_app_version': '1.0.0',
+    },
+  );
+
+  await setupLocator();
   runApp(const App());
 }

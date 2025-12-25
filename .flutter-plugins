@@ -1,4 +1,16 @@
 # This is a generated file; do not edit or check into version control.
+firebase_analytics=/Users/macbookpro/.pub-cache/hosted/pub.dev/firebase_analytics-12.1.0/
+firebase_analytics_web=/Users/macbookpro/.pub-cache/hosted/pub.dev/firebase_analytics_web-0.6.1+1/
+firebase_core=/Users/macbookpro/.pub-cache/hosted/pub.dev/firebase_core-4.3.0/
+firebase_core_web=/Users/macbookpro/.pub-cache/hosted/pub.dev/firebase_core_web-3.3.1/
+firebase_crashlytics=/Users/macbookpro/.pub-cache/hosted/pub.dev/firebase_crashlytics-5.0.6/
+firebase_messaging=/Users/macbookpro/.pub-cache/hosted/pub.dev/firebase_messaging-16.1.0/
+firebase_messaging_web=/Users/macbookpro/.pub-cache/hosted/pub.dev/firebase_messaging_web-4.1.1/
+firebase_remote_config=/Users/macbookpro/.pub-cache/hosted/pub.dev/firebase_remote_config-6.1.3/
+firebase_remote_config_web=/Users/macbookpro/.pub-cache/hosted/pub.dev/firebase_remote_config_web-1.10.2/
+flutter_local_notifications=/Users/macbookpro/.pub-cache/hosted/pub.dev/flutter_local_notifications-19.5.0/
+flutter_local_notifications_linux=/Users/macbookpro/.pub-cache/hosted/pub.dev/flutter_local_notifications_linux-6.0.0/
+flutter_local_notifications_windows=/Users/macbookpro/.pub-cache/hosted/pub.dev/flutter_local_notifications_windows-1.0.3/
 path_provider_linux=/Users/macbookpro/.pub-cache/hosted/pub.dev/path_provider_linux-2.2.1/
 path_provider_windows=/Users/macbookpro/.pub-cache/hosted/pub.dev/path_provider_windows-2.3.0/
 shared_preferences=/Users/macbookpro/.pub-cache/hosted/pub.dev/shared_preferences-2.5.3/

@@ -25,6 +25,7 @@
 - 🔄 **Dio HTTP Client** - With retry interceptor and logging
 - 💾 **Local Storage** - SharedPreferences implementation
 - 🛣️ **GoRouter** - Declarative routing
+- 🔥 **Firebase Ready** - Analytics, Crashlytics, Push Notifications, Remote Config
 
 ---
 
@@ -157,6 +158,53 @@ static const Map<EnvType, String> _baseUrls = {
   EnvType.staging: 'https://staging-api.example.com',
   EnvType.prod: 'https://api.example.com',
 };
+```
+
+---
+
+## 🔥 Firebase Setup
+
+### Quick Setup
+
+1. **Install FlutterFire CLI**
+   ```bash
+   dart pub global activate flutterfire_cli
+   ```
+
+2. **Configure Firebase**
+   ```bash
+   flutterfire configure
+   ```
+   This will:
+   - Create a Firebase project (or use existing)
+   - Download config files
+   - Generate `firebase_options.dart`
+
+3. **That's it!** 🎉 Firebase services are ready to use.
+
+### Available Services
+
+| Service | Class | Purpose |
+|---------|-------|---------|
+| **Analytics** | `AnalyticsService` | Track events & screen views |
+| **Crashlytics** | `CrashlyticsService` | Crash reporting |
+| **Messaging** | `MessagingService` | Push notifications |
+| **Remote Config** | `RemoteConfigService` | Feature flags |
+
+### Usage Examples
+
+```dart
+// Analytics - Log custom event
+AnalyticsService.logEvent(name: 'purchase', parameters: {'item': 'premium'});
+
+// Crashlytics - Log error
+CrashlyticsService.recordError(exception, stackTrace);
+
+// Messaging - Get FCM token
+final token = MessagingService.fcmToken;
+
+// Remote Config - Get feature flag
+final isNewUI = RemoteConfigService.getBool('feature_new_ui');
 ```
 
 ---
