@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_boilerplate/core/core.dart';
 import 'package:flutter_boilerplate/features/settings/presentation/bloc/bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_boilerplate/l10n/generated/app_localizations.dart';
 
 class AppSettingsPage extends StatelessWidget {
   const AppSettingsPage({super.key});
@@ -124,7 +124,7 @@ class AppSettingsPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: DropdownButtonFormField<EnvType>(
-              value: settings.environment,
+              initialValue: settings.environment,
               decoration: const InputDecoration(
                   border: InputBorder.none, contentPadding: EdgeInsets.zero),
               items: EnvType.values.map((env) {
