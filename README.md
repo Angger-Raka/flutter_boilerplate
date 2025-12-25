@@ -1,16 +1,229 @@
-# flutter_boilerplate
+# Flutter Boilerplate
 
-A new Flutter project.
+<p align="center">
+  <img src="https://flutter.dev/assets/images/shared/brand/flutter/logo/flutter-lockup.png" alt="Flutter Logo" width="300"/>
+</p>
 
-## Getting Started
+<p align="center">
+  <strong>A production-ready Flutter boilerplate with Clean Architecture, BLoC Pattern, and best practices.</strong>
+</p>
 
-This project is a starting point for a Flutter application.
+<p align="center">
+  <a href="README.id.md">🇮🇩 Bahasa Indonesia</a>
+</p>
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## ✨ Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- 🏗️ **Clean Architecture** - Separation of concerns with Data, Domain, and Presentation layers
+- 📦 **BLoC Pattern** - Predictable state management
+- 🌍 **Multi-Environment** - Dev, Staging, Production flavors for Android & iOS
+- 🌐 **Localization** - Ready for multiple languages (English & Indonesian included)
+- 🎨 **Theme Switching** - Light, Dark, and System themes
+- 💉 **Dependency Injection** - Using GetIt for service locator
+- 🔄 **Dio HTTP Client** - With retry interceptor and logging
+- 💾 **Local Storage** - SharedPreferences implementation
+- 🛣️ **GoRouter** - Declarative routing
+
+---
+
+## 📁 Project Structure
+
+```
+lib/
+├── app.dart                    # Root application widget
+├── main.dart                   # Entry point
+├── locator.dart                # Dependency injection setup
+├── router.dart                 # Route configuration
+├── core/                       # Core utilities & shared code
+│   ├── common/                 # Shared entities
+│   ├── config/                 # App configuration (DioClient, Environment)
+│   ├── constants/              # App constants
+│   ├── error/                  # Failure classes
+│   ├── services/               # Core services
+│   ├── themes/                 # App themes
+│   ├── usecases/               # Base UseCase class
+│   ├── utils/                  # Utilities & extensions
+│   └── widgets/                # Reusable widgets
+├── features/                   # Feature modules
+│   └── settings/               # Settings feature
+│       ├── data/               # Data layer
+│       │   ├── datasources/    # Local/Remote data sources
+│       │   ├── models/         # Data models
+│       │   └── repositories/   # Repository implementations
+│       ├── domain/             # Domain layer
+│       │   ├── entities/       # Business entities
+│       │   ├── repositories/   # Repository interfaces
+│       │   └── usecases/       # Use cases
+│       └── presentation/       # Presentation layer
+│           ├── bloc/           # BLoC state management
+│           ├── pages/          # Screen widgets
+│           └── widgets/        # Feature-specific widgets
+└── l10n/                       # Localization files
+    ├── app_en.arb              # English translations
+    └── app_id.arb              # Indonesian translations
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Flutter SDK 3.5.0 or higher
+- Dart SDK 3.5.0 or higher
+- Android Studio / VS Code
+- Xcode (for iOS development)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/flutter-boilerplate.git
+   cd flutter-boilerplate
+   ```
+
+2. **Install dependencies**
+   ```bash
+   flutter pub get
+   ```
+
+3. **Generate localization files**
+   ```bash
+   flutter gen-l10n
+   ```
+
+4. **Generate code (JSON serialization)**
+   ```bash
+   dart run build_runner build --delete-conflicting-outputs
+   ```
+
+5. **Run the app**
+   ```bash
+   flutter run --flavor dev
+   ```
+
+---
+
+## 🏃 Running the App
+
+### With Flavors (Recommended)
+
+```bash
+# Development
+flutter run --flavor dev
+
+# Staging
+flutter run --flavor staging
+
+# Production
+flutter run --flavor prod
+```
+
+### Build APK
+
+```bash
+# Debug
+flutter build apk --flavor dev --debug
+
+# Release
+flutter build apk --flavor prod --release
+```
+
+### Build iOS
+
+```bash
+flutter build ios --flavor prod --release
+```
+
+---
+
+## 🌍 Environment Configuration
+
+The app supports multiple environments with different API endpoints:
+
+| Environment | API URL | Bundle ID Suffix |
+|-------------|---------|------------------|
+| Development | `https://dev-api.example.com` | `.dev` |
+| Staging | `https://staging-api.example.com` | `.staging` |
+| Production | `https://api.example.com` | (none) |
+
+Configure URLs in `lib/core/config/app_env.dart`:
+
+```dart
+static const Map<EnvType, String> _baseUrls = {
+  EnvType.dev: 'https://dev-api.example.com',
+  EnvType.staging: 'https://staging-api.example.com',
+  EnvType.prod: 'https://api.example.com',
+};
+```
+
+---
+
+## 🏛️ Architecture
+
+This boilerplate follows **Clean Architecture** principles:
+
+```
+┌─────────────────────────────────────────────────────┐
+│                  Presentation Layer                  │
+│         (UI, BLoC, Pages, Widgets)                  │
+├─────────────────────────────────────────────────────┤
+│                    Domain Layer                      │
+│         (Entities, UseCases, Repositories)          │
+├─────────────────────────────────────────────────────┤
+│                     Data Layer                       │
+│    (Models, DataSources, Repository Implementations) │
+└─────────────────────────────────────────────────────┘
+```
+
+### Data Flow
+
+```
+UI → BLoC → UseCase → Repository → DataSource → API/Local Storage
+```
+
+---
+
+## 📦 Dependencies
+
+| Package | Purpose |
+|---------|---------|
+| `flutter_bloc` | State management |
+| `get_it` | Dependency injection |
+| `go_router` | Navigation |
+| `dio` | HTTP client |
+| `shared_preferences` | Local storage |
+| `dartz` | Functional programming (Either) |
+| `equatable` | Value equality |
+| `json_annotation` | JSON serialization |
+| `intl` | Internationalization |
+
+---
+
+## 🛠️ Adding a New Feature
+
+1. Create feature folder under `lib/features/your_feature/`
+2. Add layers:
+   - `data/` - DataSources, Models, Repositories
+   - `domain/` - Entities, UseCases, Repository interfaces
+   - `presentation/` - BLoC, Pages, Widgets
+3. Register dependencies in `locator.dart`
+4. Add routes in `router.dart`
+
+---
+
+## 📝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
