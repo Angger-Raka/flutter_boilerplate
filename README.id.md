@@ -25,6 +25,7 @@
 - 🔄 **Dio HTTP Client** - Dengan retry interceptor dan logging
 - 💾 **Penyimpanan Lokal** - Implementasi SharedPreferences
 - 🛣️ **GoRouter** - Routing deklaratif
+- 🔥 **Firebase Siap** - Analytics, Crashlytics, Push Notifications, Remote Config
 
 ---
 
@@ -157,6 +158,53 @@ static const Map<EnvType, String> _baseUrls = {
   EnvType.staging: 'https://staging-api.example.com',
   EnvType.prod: 'https://api.example.com',
 };
+```
+
+---
+
+## 🔥 Setup Firebase
+
+### Setup Cepat
+
+1. **Install FlutterFire CLI**
+   ```bash
+   dart pub global activate flutterfire_cli
+   ```
+
+2. **Konfigurasi Firebase**
+   ```bash
+   flutterfire configure
+   ```
+   Ini akan:
+   - Membuat project Firebase (atau pakai yang sudah ada)
+   - Download file konfigurasi
+   - Generate `firebase_options.dart`
+
+3. **Selesai!** 🎉 Firebase services siap dipakai.
+
+### Services yang Tersedia
+
+| Service | Class | Kegunaan |
+|---------|-------|----------|
+| **Analytics** | `AnalyticsService` | Track events & screen views |
+| **Crashlytics** | `CrashlyticsService` | Crash reporting |
+| **Messaging** | `MessagingService` | Push notifications |
+| **Remote Config** | `RemoteConfigService` | Feature flags |
+
+### Contoh Penggunaan
+
+```dart
+// Analytics - Log custom event
+AnalyticsService.logEvent(name: 'purchase', parameters: {'item': 'premium'});
+
+// Crashlytics - Log error
+CrashlyticsService.recordError(exception, stackTrace);
+
+// Messaging - Ambil FCM token
+final token = MessagingService.fcmToken;
+
+// Remote Config - Ambil feature flag
+final isNewUI = RemoteConfigService.getBool('feature_new_ui');
 ```
 
 ---

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_boilerplate/l10n/generated/app_localizations.dart';
 import 'package:flutter_boilerplate/features/settings/settings.dart';
 import 'package:flutter_boilerplate/locator.dart';
 import 'package:flutter_boilerplate/router.dart';
