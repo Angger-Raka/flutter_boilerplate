@@ -107,6 +107,32 @@ lib/
 
 ---
 
+## 🔄 Rename Project (For New Projects)
+
+When using this boilerplate for a new project, run the rename script:
+
+```bash
+# Make script executable (first time only)
+chmod +x scripts/rename_project.sh
+
+# Rename project
+./scripts/rename_project.sh my_app_name com.yourcompany.myapp
+```
+
+**Example:**
+```bash
+./scripts/rename_project.sh calculator com.example.calculator
+```
+
+The script will automatically update:
+- ✅ All Dart package imports
+- ✅ pubspec.yaml
+- ✅ Android (build.gradle.kts, AndroidManifest.xml, MainActivity.kt)
+- ✅ iOS (project.pbxproj)
+- ✅ Web, macOS, Linux, Windows configs
+
+---
+
 ## 🏃 Running the App
 
 ### With Flavors (Recommended)

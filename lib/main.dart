@@ -24,25 +24,28 @@ Future<void> main() async {
     HttpOverrides.global = DevHttpOverrides();
   }
 
-  // Initialize Firebase
+  // Initialize Firebase (gracefully handles if not configured)
   await FirebaseService.initialize();
 
-  // Initialize Push Notifications
-  await MessagingService.initialize(
-    onMessageOpenedApp: (message) {
-      debugPrint('🔔 Notification tapped: ${message.data}');
-      // Handle deep linking here
-    },
-  );
+  // Only initialize Firebase-dependent services if Firebase is ready
+  if (FirebaseService.isInitialized) {
+    // Initialize Push Notifications
+    await MessagingService.initialize(
+      onMessageOpenedApp: (message) {
+        debugPrint('🔔 Notification tapped: ${message.data}');
+        // Handle deep linking here
+      },
+    );
 
-  // Initialize Remote Config with defaults
-  await RemoteConfigService.initialize(
-    defaults: {
-      'feature_new_ui': false,
-      'maintenance_mode': false,
-      'min_app_version': '1.0.0',
-    },
-  );
+    // Initialize Remote Config with defaults
+    await RemoteConfigService.initialize(
+      defaults: {
+        'feature_new_ui': false,
+        'maintenance_mode': false,
+        'min_app_version': '1.0.0',
+      },
+    );
+  }
 
   await setupLocator();
   runApp(const App());
