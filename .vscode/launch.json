@@ -1,0 +1,108 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        // ============ DEVELOPMENT ============
+        {
+            "name": "🟢 Dev (Debug)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor",
+                "dev"
+            ]
+        },
+        {
+            "name": "🟢 Dev (Profile)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile",
+            "args": [
+                "--flavor",
+                "dev"
+            ]
+        },
+        {
+            "name": "🟢 Dev (Release)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "args": [
+                "--flavor",
+                "dev"
+            ]
+        },
+        // ============ STAGING ============
+        {
+            "name": "🟡 Staging (Debug)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor",
+                "staging"
+            ]
+        },
+        {
+            "name": "🟡 Staging (Profile)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile",
+            "args": [
+                "--flavor",
+                "staging"
+            ]
+        },
+        {
+            "name": "🟡 Staging (Release)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "args": [
+                "--flavor",
+                "staging"
+            ]
+        },
+        // ============ PRODUCTION ============
+        {
+            "name": "🔴 Prod (Debug)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor",
+                "prod"
+            ]
+        },
+        {
+            "name": "🔴 Prod (Profile)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile",
+            "args": [
+                "--flavor",
+                "prod"
+            ]
+        },
+        {
+            "name": "🔴 Prod (Release)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "args": [
+                "--flavor",
+                "prod"
+            ]
+        }
+    ],
+    "compounds": [
+        {
+            "name": "All Flavors (Debug)",
+            "configurations": [
+                "🟢 Dev (Debug)",
+                "🟡 Staging (Debug)",
+                "🔴 Prod (Debug)"
+            ]
+        }
+    ]
+}

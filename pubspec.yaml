@@ -34,6 +34,10 @@ dependencies:
   firebase_messaging: any
   firebase_remote_config: any
   flutter_local_notifications: any
+  
+  # SECURITY & NETWORK
+  flutter_secure_storage: any
+  connectivity_plus: any
 
 dev_dependencies:
   flutter_test:

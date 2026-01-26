@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_boilerplate/core/core.dart';
 import 'package:flutter_boilerplate/features/settings/settings.dart';
+import 'package:flutter_boilerplate/features/auth/auth.dart';
 import 'package:flutter_boilerplate/router.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -36,6 +37,9 @@ Future<void> setupCore() async {
 Future<void> setupFeatures() async {
   // Settings Feature
   _setupSettingsFeature();
+
+  // Auth Feature
+  _setupAuthFeature();
 }
 
 void _setupSettingsFeature() {
@@ -68,6 +72,41 @@ void _setupSettingsFeature() {
       getAppSettings: getIt<GetAppSettings>(),
       saveAppSettings: getIt<SaveAppSettings>(),
       dioClient: getIt<DioClient>(),
+    ),
+  );
+}
+
+void _setupAuthFeature() {
+  // Data Sources
+  getIt.registerLazySingleton<AuthRemoteDataSource>(
+    () => AuthRemoteDataSourceImpl(),
+  );
+
+  // Repository
+  getIt.registerLazySingleton<AuthRepository>(
+    () => AuthRepositoryImpl(
+      remoteDataSource: getIt<AuthRemoteDataSource>(),
+    ),
+  );
+
+  // Use Cases
+  getIt
+    ..registerLazySingleton<Login>(
+      () => Login(getIt<AuthRepository>()),
+    )
+    ..registerLazySingleton<Logout>(
+      () => Logout(getIt<AuthRepository>()),
+    )
+    ..registerLazySingleton<GetCurrentUser>(
+      () => GetCurrentUser(getIt<AuthRepository>()),
+    );
+
+  // BLoC
+  getIt.registerFactory<AuthBloc>(
+    () => AuthBloc(
+      login: getIt<Login>(),
+      logout: getIt<Logout>(),
+      getCurrentUser: getIt<GetCurrentUser>(),
     ),
   );
 }
