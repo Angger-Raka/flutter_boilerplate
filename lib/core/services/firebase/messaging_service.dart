@@ -96,7 +96,7 @@ class MessagingService {
       iOS: iosSettings,
     );
 
-    await _localNotifications.initialize(settings);
+    await _localNotifications.initialize(settings: settings);
 
     // Create notification channel for Android
     if (Platform.isAndroid) {
@@ -154,10 +154,10 @@ class MessagingService {
     );
 
     await _localNotifications.show(
-      DateTime.now().millisecondsSinceEpoch ~/ 1000,
-      title,
-      body,
-      details,
+      id: DateTime.now().millisecondsSinceEpoch ~/ 1000,
+      title: title,
+      body: body,
+      notificationDetails: details,
       payload: payload,
     );
   }

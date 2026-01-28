@@ -10,7 +10,7 @@ final router = GoRouter(
   routes: [
     // Login
     GoRoute(
-      path: '/login',
+      path: NamedRoutes.login,
       builder: (context, state) => BlocProvider(
         create: (_) => getIt<AuthBloc>(),
         child: const LoginPage(),
@@ -19,7 +19,7 @@ final router = GoRouter(
 
     // Profile
     GoRoute(
-      path: '/profile',
+      path: NamedRoutes.profile,
       builder: (context, state) => BlocProvider(
         create: (_) => getIt<AuthBloc>()..add(const AuthCheckRequested()),
         child: const ProfilePage(),
@@ -28,14 +28,14 @@ final router = GoRouter(
 
     // Settings
     GoRoute(
-      path: '/settings',
+      path: NamedRoutes.settings,
       builder: (context, state) => const AppSettingsPage(),
     ),
 
     // Default route
     GoRoute(
-      path: '/',
-      redirect: (context, state) => '/login',
+      path: NamedRoutes.initial,
+      redirect: (context, state) => NamedRoutes.login,
     ),
   ],
 );
